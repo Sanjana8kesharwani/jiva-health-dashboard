@@ -11,7 +11,7 @@ export default function DashboardLayout() {
   };
 
   return (
-    <div className="flex h-screen w-screen overflow-hidden bg-gray-50/50">
+    <div className="flex h-screen w-screen overflow-hidden bg-gray-50/50 dark:bg-slate-950 text-gray-800 dark:text-slate-100">
       {/* Responsive Sidebar */}
       <Sidebar isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
 

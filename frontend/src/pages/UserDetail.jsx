@@ -89,10 +89,10 @@ export default function UserDetail() {
 
   if (!user) {
     return (
-      <div className="text-center py-12 bg-white rounded-2xl border border-gray-100 shadow-sm">
-        <h3 className="text-lg font-bold text-gray-800">User Not Found</h3>
-        <p className="text-sm text-gray-500 mt-1">The user ID you requested does not exist.</p>
-        <Link to="/users" className="mt-4 inline-flex items-center gap-2 text-sm text-emerald-600 font-semibold hover:text-emerald-700">
+      <div className="text-center py-12 bg-white dark:bg-slate-900 rounded-2xl border border-gray-100 dark:border-slate-800 shadow-sm">
+        <h3 className="text-lg font-bold text-gray-800 dark:text-slate-100">User Not Found</h3>
+        <p className="text-sm text-gray-500 dark:text-slate-400 mt-1">The user ID you requested does not exist.</p>
+        <Link to="/users" className="mt-4 inline-flex items-center gap-2 text-sm text-emerald-600 dark:text-emerald-400 font-semibold hover:text-emerald-700">
           <ArrowLeft className="w-4 h-4" /> Back to User Management
         </Link>
       </div>
@@ -261,13 +261,13 @@ export default function UserDetail() {
         return (
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             {/* Personal Information card */}
-            <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm space-y-6 flex flex-col justify-between">
+            <div className="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-gray-100 dark:border-slate-800 shadow-sm space-y-6 flex flex-col justify-between">
               <div className="space-y-4">
-                <div className="flex items-center justify-between border-b border-gray-50 pb-3">
-                  <h3 className="font-bold text-gray-800">Personal Information</h3>
+                <div className="flex items-center justify-between border-b border-gray-50 dark:border-slate-800 pb-3">
+                  <h3 className="font-bold text-gray-800 dark:text-slate-100">Personal Information</h3>
                   <button
                     onClick={handleOpenEditInfo}
-                    className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold border border-gray-200 rounded-xl hover:bg-gray-50 transition-colors cursor-pointer text-gray-600"
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold border border-gray-200 dark:border-slate-700 rounded-xl hover:bg-gray-50 dark:hover:bg-slate-800 transition-colors cursor-pointer text-gray-600 dark:text-slate-400"
                   >
                     <Edit className="w-3.5 h-3.5" />
                     Edit
@@ -276,42 +276,42 @@ export default function UserDetail() {
                 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-6 text-sm">
                   <div className="flex items-center gap-3">
-                    <Mail className="w-4 h-4 text-emerald-600 flex-shrink-0" />
+                    <Mail className="w-4 h-4 text-emerald-600 dark:text-emerald-400 flex-shrink-0" />
                     <div className="min-w-0">
-                      <span className="text-xs text-gray-400 block">Email:</span>
-                      <span className="font-medium text-gray-700 truncate block">{user.email}</span>
+                      <span className="text-xs text-gray-400 dark:text-slate-500 block">Email:</span>
+                      <span className="font-medium text-gray-700 dark:text-slate-300 truncate block">{user.email}</span>
                     </div>
                   </div>
 
                   <div className="flex items-center gap-3">
-                    <Phone className="w-4 h-4 text-emerald-600 flex-shrink-0" />
+                    <Phone className="w-4 h-4 text-emerald-600 dark:text-emerald-400 flex-shrink-0" />
                     <div>
-                      <span className="text-xs text-gray-400 block">Phone:</span>
-                      <span className="font-medium text-gray-700">{user.phone}</span>
+                      <span className="text-xs text-gray-400 dark:text-slate-500 block">Phone:</span>
+                      <span className="font-medium text-gray-700 dark:text-slate-300">{user.phone}</span>
                     </div>
                   </div>
 
                   <div className="flex items-center gap-3">
-                    <Calendar className="w-4 h-4 text-emerald-600 flex-shrink-0" />
+                    <Calendar className="w-4 h-4 text-emerald-600 dark:text-emerald-400 flex-shrink-0" />
                     <div>
-                      <span className="text-xs text-gray-400 block">Date of Birth:</span>
-                      <span className="font-medium text-gray-700">{user.dob}</span>
+                      <span className="text-xs text-gray-400 dark:text-slate-500 block">Date of Birth:</span>
+                      <span className="font-medium text-gray-700 dark:text-slate-300">{user.dob}</span>
                     </div>
                   </div>
 
                   <div className="flex items-center gap-3">
-                    <User className="w-4 h-4 text-emerald-600 flex-shrink-0" />
+                    <User className="w-4 h-4 text-emerald-600 dark:text-emerald-400 flex-shrink-0" />
                     <div>
-                      <span className="text-xs text-gray-400 block">Gender:</span>
-                      <span className="font-medium text-gray-700">{user.gender}</span>
+                      <span className="text-xs text-gray-400 dark:text-slate-500 block">Gender:</span>
+                      <span className="font-medium text-gray-700 dark:text-slate-300">{user.gender}</span>
                     </div>
                   </div>
 
                   <div className="flex items-center gap-3">
-                    <Droplet className="w-4 h-4 text-emerald-600 flex-shrink-0" />
+                    <Droplet className="w-4 h-4 text-emerald-600 dark:text-emerald-400 flex-shrink-0" />
                     <div>
-                      <span className="text-xs text-gray-400 block">Blood Group:</span>
-                      <span className="font-medium text-gray-700">{user.bloodGroup}</span>
+                      <span className="text-xs text-gray-400 dark:text-slate-500 block">Blood Group:</span>
+                      <span className="font-medium text-gray-700 dark:text-slate-300">{user.bloodGroup}</span>
                     </div>
                   </div>
                 </div>
@@ -319,12 +319,12 @@ export default function UserDetail() {
             </div>
 
             {/* Addresses section */}
-            <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm space-y-4">
-              <div className="flex items-center justify-between border-b border-gray-50 pb-3">
-                <h3 className="font-bold text-gray-800">Addresses</h3>
+            <div className="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-gray-100 dark:border-slate-800 shadow-sm space-y-4">
+              <div className="flex items-center justify-between border-b border-gray-50 dark:border-slate-800 pb-3">
+                <h3 className="font-bold text-gray-800 dark:text-slate-100">Addresses</h3>
                 <button
                   onClick={handleOpenAddAddress}
-                  className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold border border-gray-200 rounded-xl hover:bg-gray-50 transition-colors cursor-pointer text-gray-600"
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold border border-gray-200 dark:border-slate-700 rounded-xl hover:bg-gray-50 dark:hover:bg-slate-800 transition-colors cursor-pointer text-gray-600 dark:text-slate-400"
                 >
                   <Plus className="w-3.5 h-3.5" />
                   Add
@@ -336,22 +336,22 @@ export default function UserDetail() {
                   {user.addresses.map((addr) => (
                     <div 
                       key={addr.id} 
-                      className="p-4 bg-gray-50/70 border border-gray-100 rounded-xl flex items-start justify-between gap-4"
+                      className="p-4 bg-gray-50/70 dark:bg-slate-850/40 border border-gray-100 dark:border-slate-800 rounded-xl flex items-start justify-between gap-4"
                     >
                       <div className="flex gap-3">
-                        <div className="mt-1 p-2 bg-emerald-50 rounded-lg text-emerald-600">
+                        <div className="mt-1 p-2 bg-emerald-50 dark:bg-emerald-950/40 rounded-lg text-emerald-600 dark:text-emerald-400">
                           {addr.type === 'Home' ? <Home className="w-4 h-4" /> : <MapPin className="w-4 h-4" />}
                         </div>
                         <div className="text-sm">
-                          <span className="font-semibold text-gray-800 flex items-center gap-2">
+                          <span className="font-semibold text-gray-800 dark:text-slate-200 flex items-center gap-2">
                             {addr.type}
                             {addr.isDefault && (
-                              <span className="px-1.5 py-0.5 text-[10px] font-bold bg-gray-200 text-gray-700 rounded-md">
+                              <span className="px-1.5 py-0.5 text-[10px] font-bold bg-gray-200 dark:bg-slate-700 text-gray-700 dark:text-slate-300 rounded-md">
                                 Default
                               </span>
                             )}
                           </span>
-                          <p className="text-gray-500 mt-1.5 leading-relaxed whitespace-pre-line">
+                          <p className="text-gray-500 dark:text-slate-400 mt-1.5 leading-relaxed whitespace-pre-line">
                             {addr.street}, {addr.city}, {addr.state} {addr.zip}, {addr.country}
                           </p>
                         </div>
@@ -360,14 +360,14 @@ export default function UserDetail() {
                       <div className="flex items-center gap-1">
                         <button
                           onClick={() => handleOpenEditAddress(addr)}
-                          className="p-1 text-gray-400 hover:text-blue-600 hover:bg-white rounded border border-transparent hover:border-gray-200 transition-all cursor-pointer"
+                          className="p-1 text-gray-400 dark:text-slate-500 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-white dark:hover:bg-slate-900 rounded border border-transparent hover:border-gray-200 dark:hover:border-slate-700 transition-all cursor-pointer"
                           title="Edit Address"
                         >
                           <Edit className="w-3.5 h-3.5" />
                         </button>
                         <button
                           onClick={() => deleteAddress(user.id, addr.id)}
-                          className="p-1 text-gray-400 hover:text-rose-600 hover:bg-white rounded border border-transparent hover:border-gray-200 transition-all cursor-pointer"
+                          className="p-1 text-gray-400 dark:text-slate-500 hover:text-rose-600 dark:hover:text-rose-400 hover:bg-white dark:hover:bg-slate-900 rounded border border-transparent hover:border-gray-200 dark:hover:border-slate-700 transition-all cursor-pointer"
                           title="Delete Address"
                         >
                           <Trash2 className="w-3.5 h-3.5" />
@@ -377,7 +377,7 @@ export default function UserDetail() {
                   ))}
                 </div>
               ) : (
-                <div className="text-center py-8 text-gray-400 text-xs">
+                <div className="text-center py-8 text-gray-400 dark:text-slate-500 text-xs">
                   No addresses added yet. Click Add to insert one.
                 </div>
               )}
@@ -466,7 +466,7 @@ export default function UserDetail() {
         return (
           <div className="space-y-6">
             <div className="flex items-center justify-between">
-              <h3 className="font-bold text-gray-800">Family Members ({familyCount})</h3>
+              <h3 className="font-bold text-gray-800 dark:text-slate-100">Family Members ({familyCount})</h3>
               <button
                 onClick={handleOpenAddFamily}
                 className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold text-white bg-emerald-600 hover:bg-emerald-700 rounded-xl shadow-md transition-colors cursor-pointer"
@@ -481,18 +481,18 @@ export default function UserDetail() {
                 {user.familyMembers.map((member) => (
                   <div 
                     key={member.id}
-                    className="bg-white p-5 rounded-2xl border border-gray-100 shadow-sm flex flex-col justify-between hover:shadow-md transition-all duration-200 relative group"
+                    className="bg-white dark:bg-slate-900 p-5 rounded-2xl border border-gray-100 dark:border-slate-800 shadow-sm flex flex-col justify-between hover:shadow-md transition-all duration-200 relative group"
                   >
                     <div className="flex items-start gap-3.5">
-                      <div className="w-10 h-10 rounded-full bg-purple-50 text-purple-700 flex items-center justify-center font-bold text-xs">
+                      <div className="w-10 h-10 rounded-full bg-purple-50 dark:bg-purple-950/40 text-purple-700 dark:text-purple-300 flex items-center justify-center font-bold text-xs">
                         {member.name.split(' ').map(n=>n[0]).join('').toUpperCase().slice(0, 2)}
                       </div>
                       <div className="space-y-1">
-                        <h4 className="font-semibold text-gray-800 text-sm">{member.name}</h4>
-                        <span className="inline-block px-2 py-0.5 text-[10px] font-semibold bg-purple-50 text-purple-700 border border-purple-100 rounded-full">
+                        <h4 className="font-semibold text-gray-800 dark:text-slate-200 text-sm">{member.name}</h4>
+                        <span className="inline-block px-2 py-0.5 text-[10px] font-semibold bg-purple-50 dark:bg-purple-950/40 text-purple-700 dark:text-purple-300 border border-purple-100 dark:border-purple-900/60 rounded-full">
                           {member.relationship}
                         </span>
-                        <div className="text-xs text-gray-500 pt-1 space-y-0.5">
+                        <div className="text-xs text-gray-500 dark:text-slate-400 pt-1 space-y-0.5">
                           <p>DOB: {member.dob}</p>
                           <p>Phone: {member.phone || 'N/A'}</p>
                         </div>
@@ -502,14 +502,14 @@ export default function UserDetail() {
                     <div className="absolute top-4 right-4 flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
                       <button
                         onClick={() => handleOpenEditFamily(member)}
-                        className="p-1 text-gray-400 hover:text-blue-600 hover:bg-gray-50 rounded transition-all cursor-pointer border border-transparent hover:border-gray-200"
+                        className="p-1 text-gray-400 dark:text-slate-500 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-50 dark:hover:bg-slate-800 rounded transition-all cursor-pointer border border-transparent hover:border-gray-200 dark:hover:border-slate-700"
                         title="Edit Member"
                       >
                         <Edit className="w-3.5 h-3.5" />
                       </button>
                       <button
                         onClick={() => deleteFamilyMember(user.id, member.id)}
-                        className="p-1 text-gray-400 hover:text-rose-600 hover:bg-gray-50 rounded transition-all cursor-pointer border border-transparent hover:border-gray-200"
+                        className="p-1 text-gray-400 dark:text-slate-500 hover:text-rose-600 dark:hover:text-rose-400 hover:bg-gray-50 dark:hover:bg-slate-800 rounded transition-all cursor-pointer border border-transparent hover:border-gray-200 dark:hover:border-slate-700"
                         title="Delete Member"
                       >
                         <Trash2 className="w-3.5 h-3.5" />
@@ -519,7 +519,7 @@ export default function UserDetail() {
                 ))}
               </div>
             ) : (
-              <div className="text-center py-12 bg-white rounded-2xl border border-gray-100 shadow-sm text-gray-400 text-sm">
+              <div className="text-center py-12 bg-white dark:bg-slate-900 rounded-2xl border border-gray-100 dark:border-slate-800 shadow-sm text-gray-400 dark:text-slate-500 text-sm">
                 No family members linked to this profile. Click "Add Member" to link family.
               </div>
             )}
@@ -537,7 +537,7 @@ export default function UserDetail() {
       <div>
         <Link 
           to="/users" 
-          className="inline-flex items-center gap-1.5 text-xs font-semibold text-gray-500 hover:text-gray-800 transition-colors"
+          className="inline-flex items-center gap-1.5 text-xs font-semibold text-gray-500 dark:text-slate-400 hover:text-gray-800 dark:hover:text-slate-200 transition-colors"
         >
           <ArrowLeft className="w-3.5 h-3.5" />
           Back to User Management
@@ -545,31 +545,35 @@ export default function UserDetail() {
       </div>
 
       {/* Profile Header section */}
-      <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-6">
+      <div className="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-gray-100 dark:border-slate-800 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-6">
         <div className="flex items-center gap-4.5">
           {/* Avatar Circle */}
-          <div className="w-16 h-16 rounded-full bg-[#b2e5d9] text-[#137333] flex items-center justify-center font-bold text-xl shadow-sm border border-emerald-100 flex-shrink-0">
-            {user.avatar}
+          <div className="w-16 h-16 rounded-full bg-[#b2e5d9] dark:bg-emerald-950/60 text-[#137333] dark:text-emerald-300 flex items-center justify-center font-bold text-xl shadow-sm border border-emerald-100 dark:border-emerald-900/60 flex-shrink-0 overflow-hidden">
+            {typeof user.avatar === 'string' && user.avatar.startsWith('http') ? (
+              <img src={user.avatar} alt={user.name} className="w-full h-full object-cover" />
+            ) : (
+              user.avatar
+            )}
           </div>
           
           {/* User names and badges */}
           <div className="space-y-1.5">
-            <h1 className="text-xl font-bold text-gray-800 leading-tight">{user.name}</h1>
+            <h1 className="text-xl font-bold text-gray-800 dark:text-slate-100 leading-tight">{user.name}</h1>
             <div className="flex flex-wrap items-center gap-1.5">
               <StatusBadge status={user.status} />
               <StatusBadge status={user.role} type="role" />
               <StatusBadge status={user.isPrime ? 'Prime User' : 'Normal User'} type="user-type" />
-              <span className="text-xs text-gray-400 font-semibold ml-1">ID: #{user.id}</span>
+              <span className="text-xs text-gray-400 dark:text-slate-500 font-semibold ml-1">ID: #{user.id}</span>
             </div>
             
             {/* Logs */}
-            <div className="flex flex-wrap items-center gap-x-4 gap-y-1 pt-1.5 text-xs text-gray-400 font-medium">
+            <div className="flex flex-wrap items-center gap-x-4 gap-y-1 pt-1.5 text-xs text-gray-400 dark:text-slate-500 font-medium">
               <span className="flex items-center gap-1">
-                <Calendar className="w-3.5 h-3.5 text-gray-400" />
+                <Calendar className="w-3.5 h-3.5 text-gray-400 dark:text-slate-500" />
                 Joined {user.joinedDate}
               </span>
               <span className="flex items-center gap-1">
-                <Activity className="w-3.5 h-3.5 text-gray-400" />
+                <Activity className="w-3.5 h-3.5 text-gray-400 dark:text-slate-500" />
                 Last active {user.lastActive}
               </span>
             </div>
@@ -581,7 +585,7 @@ export default function UserDetail() {
           {!user.isPrime && user.role === 'Patient' && (
             <button
               onClick={() => upgradeUserToPrime(user.id)}
-              className="inline-flex items-center gap-2 px-4 py-2.5 text-sm font-semibold text-white bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-600 hover:to-orange-700 rounded-xl shadow-md transition-all duration-150 transform hover:-translate-y-0.5 cursor-pointer"
+              className="inline-flex items-center gap-2 px-4 py-2.5 text-sm font-semibold text-white bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-600 hover:to-orange-700 rounded-xl shadow-md transition-all duration-150 transform hover:-translate-y-0.5 cursor-pointer animate-pulse"
             >
               <Crown className="w-4 h-4 text-white fill-white" />
               Upgrade to Prime
@@ -592,10 +596,10 @@ export default function UserDetail() {
           <select
             value={user.status}
             onChange={() => toggleUserStatus(user.id)}
-            className="px-4 py-2.5 text-sm font-semibold text-gray-700 bg-white border border-gray-200 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 transition-all cursor-pointer appearance-none bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2020%2020%22%20fill%3D%22none%22%3E%3Cpath%20d%3D%22M7%209l3%203%203-3%22%20stroke%3D%22%236B7280%22%20stroke-width%3D%221.5%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%3C%2Fsvg%3E')] bg-[right_0.5rem_center] bg-[length:1.25rem_1.25rem] bg-no-repeat pr-9"
+            className="px-4 py-2.5 text-sm font-semibold text-gray-700 dark:text-slate-200 bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 transition-all cursor-pointer appearance-none bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2020%2020%22%20fill%3D%22none%22%3E%3Cpath%20d%3D%22M7%209l3%203%203-3%22%20stroke%3D%22%236B7280%22%20stroke-width%3D%221.5%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%3C%2Fsvg%3E')] bg-[right_0.5rem_center] bg-[length:1.25rem_1.25rem] bg-no-repeat pr-9"
           >
-            <option value="Active">Active</option>
-            <option value="Inactive">Inactive</option>
+            <option value="Active" className="dark:bg-slate-800 dark:text-slate-200">Active</option>
+            <option value="Inactive" className="dark:bg-slate-800 dark:text-slate-200">Inactive</option>
           </select>
         </div>
       </div>

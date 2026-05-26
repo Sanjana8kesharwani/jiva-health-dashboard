@@ -158,17 +158,21 @@ export default function UserManagement() {
       header: 'Name',
       render: (row) => (
         <div className="flex items-center gap-3">
-          <div className="w-9 h-9 rounded-full bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold text-xs shadow-sm">
-            {row.avatar}
+          <div className="w-9 h-9 rounded-full bg-emerald-100 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-300 flex items-center justify-center font-bold text-xs shadow-sm shrink-0 overflow-hidden">
+            {typeof row.avatar === 'string' && row.avatar.startsWith('http') ? (
+              <img src={row.avatar} alt={row.name} className="w-full h-full object-cover" />
+            ) : (
+              row.avatar
+            )}
           </div>
-          <div className="font-semibold text-gray-800 flex flex-col">
-            <span className="flex items-center gap-1.5">
-              {row.name}
+          <div className="font-semibold text-gray-800 dark:text-slate-200 flex flex-col min-w-0">
+            <div className="flex items-center gap-1.5 min-w-0">
+              <span className="truncate" title={row.name}>{row.name}</span>
               {row.isPrime && (
-                <Crown className="w-3.5 h-3.5 text-amber-500 fill-amber-500" title="Prime Member" />
+                <Crown className="w-3.5 h-3.5 text-amber-500 fill-amber-500 shrink-0" title="Prime Member" />
               )}
-            </span>
-            <span className="text-xs text-gray-400 font-normal">ID: #{row.id}</span>
+            </div>
+            <span className="text-xs text-gray-400 dark:text-slate-500 font-normal truncate">ID: #{row.id}</span>
           </div>
         </div>
       )
@@ -196,19 +200,19 @@ export default function UserManagement() {
           {/* View user details */}
           <button
             onClick={() => navigate(`/users/${row.id}`)}
-            className="p-1.5 text-gray-500 hover:text-emerald-600 hover:bg-emerald-50 rounded-lg transition-colors cursor-pointer"
+            className="flex items-center gap-1 px-2 py-1.5 text-xs font-semibold text-emerald-700 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/40 hover:bg-emerald-100 dark:hover:bg-emerald-950/60 rounded-md transition-colors cursor-pointer border border-emerald-100 dark:border-emerald-900/60"
             title="View Details"
           >
-            <Eye className="w-4 h-4" />
+            <Eye className="w-3.5 h-3.5" /> View
           </button>
           
           {/* Edit user details */}
           <button
             onClick={() => handleOpenEditModal(row)}
-            className="p-1.5 text-gray-500 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors cursor-pointer"
+            className="flex items-center gap-1 px-2 py-1.5 text-xs font-semibold text-blue-700 dark:text-blue-400 bg-blue-50 dark:bg-blue-950/40 hover:bg-blue-100 dark:hover:bg-blue-950/60 rounded-md transition-colors cursor-pointer border border-blue-100 dark:border-blue-900/60 ml-1"
             title="Edit User"
           >
-            <Edit className="w-4 h-4" />
+            <Edit className="w-3.5 h-3.5" /> Edit
           </button>
 
           {/* Toggle status */}
@@ -216,8 +220,8 @@ export default function UserManagement() {
             onClick={() => toggleUserStatus(row.id)}
             className={`p-1.5 rounded-lg transition-colors cursor-pointer ${
               row.status === 'Active' 
-                ? 'text-gray-400 hover:text-rose-600 hover:bg-rose-50' 
-                : 'text-gray-400 hover:text-emerald-600 hover:bg-emerald-50'
+                ? 'text-gray-400 dark:text-slate-500 hover:text-rose-600 dark:hover:text-rose-400 hover:bg-rose-50 dark:hover:bg-rose-950/40' 
+                : 'text-gray-400 dark:text-slate-500 hover:text-emerald-600 dark:hover:text-emerald-400 hover:bg-emerald-50 dark:hover:bg-emerald-950/40'
             }`}
             title={row.status === 'Active' ? 'Deactivate User' : 'Activate User'}
           >
@@ -228,7 +232,7 @@ export default function UserManagement() {
           {!row.isPrime && row.role === 'Patient' && (
             <button
               onClick={() => upgradeUserToPrime(row.id)}
-              className="p-1 text-xs font-semibold text-amber-700 bg-amber-50 hover:bg-amber-100 border border-amber-200 rounded-lg flex items-center gap-1 transition-colors px-2 py-1 ml-1 cursor-pointer"
+              className="p-1 text-xs font-semibold text-amber-700 dark:text-amber-300 bg-amber-50 dark:bg-amber-950/40 hover:bg-amber-100 dark:hover:bg-amber-950/60 border border-amber-200 dark:border-amber-900/60 rounded-lg flex items-center gap-1 transition-colors px-2 py-1 ml-1 cursor-pointer"
               title="Upgrade to Prime"
             >
               <Crown className="w-3.5 h-3.5 fill-amber-500" />
@@ -245,8 +249,8 @@ export default function UserManagement() {
       {/* Header and Add button */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-bold text-gray-800">User Management</h1>
-          <p className="text-sm text-gray-500 mt-1">Manage and audit clinic patients, doctors, and system administrators.</p>
+          <h1 className="text-2xl font-bold text-gray-800 dark:text-slate-100">User Management</h1>
+          <p className="text-sm text-gray-500 dark:text-slate-400 mt-1">Manage and audit clinic patients, doctors, and system administrators.</p>
         </div>
         <button
           onClick={handleOpenAddModal}
@@ -288,15 +292,15 @@ export default function UserManagement() {
       </div>
 
       {/* Filter and Search controls */}
-      <div className="bg-white p-4 rounded-2xl border border-gray-100 shadow-sm flex flex-col md:flex-row items-center justify-between gap-4">
+      <div className="bg-white dark:bg-slate-900 p-4 rounded-2xl border border-gray-100 dark:border-slate-800 shadow-sm flex flex-col md:flex-row items-center justify-between gap-4">
         {/* Status filters */}
-        <div className="flex items-center gap-1.5 bg-gray-50 p-1 rounded-xl w-full md:w-auto border border-gray-100">
+        <div className="flex items-center gap-1.5 bg-gray-50 dark:bg-slate-800 p-1 rounded-xl w-full md:w-auto border border-gray-100 dark:border-slate-700">
           <button
             onClick={() => setStatusFilter('all')}
             className={`flex-1 md:flex-none px-4 py-1.5 text-xs font-semibold rounded-lg transition-all cursor-pointer ${
               statusFilter === 'all' 
-                ? 'bg-white text-gray-800 shadow-sm' 
-                : 'text-gray-500 hover:text-gray-800'
+                ? 'bg-white dark:bg-slate-700 text-gray-800 dark:text-slate-100 shadow-sm' 
+                : 'text-gray-500 dark:text-slate-400 hover:text-gray-800 dark:hover:text-slate-200'
             }`}
           >
             All Users
@@ -305,8 +309,8 @@ export default function UserManagement() {
             onClick={() => setStatusFilter('active')}
             className={`flex-1 md:flex-none px-4 py-1.5 text-xs font-semibold rounded-lg transition-all cursor-pointer ${
               statusFilter === 'active' 
-                ? 'bg-white text-emerald-700 shadow-sm' 
-                : 'text-gray-500 hover:text-emerald-700'
+                ? 'bg-white dark:bg-slate-700 text-emerald-700 dark:text-emerald-400 shadow-sm' 
+                : 'text-gray-500 dark:text-slate-400 hover:text-emerald-700 dark:hover:text-emerald-300'
             }`}
           >
             Active Only
@@ -315,8 +319,8 @@ export default function UserManagement() {
             onClick={() => setStatusFilter('inactive')}
             className={`flex-1 md:flex-none px-4 py-1.5 text-xs font-semibold rounded-lg transition-all cursor-pointer ${
               statusFilter === 'inactive' 
-                ? 'bg-white text-rose-700 shadow-sm' 
-                : 'text-gray-500 hover:text-rose-700'
+                ? 'bg-white dark:bg-slate-700 text-rose-700 dark:text-rose-400 shadow-sm' 
+                : 'text-gray-500 dark:text-slate-400 hover:text-rose-700 dark:hover:text-rose-300'
             }`}
           >
             Inactive Only
@@ -333,7 +337,7 @@ export default function UserManagement() {
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             placeholder="Search name, email, phone..."
-            className="w-full pl-9 pr-4 py-2 text-xs border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 transition-all text-gray-700"
+            className="w-full pl-9 pr-4 py-2 text-xs border border-gray-200 dark:border-slate-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 transition-all text-gray-700 dark:text-slate-200 bg-white dark:bg-slate-800 placeholder-gray-400 dark:placeholder-slate-500"
           />
         </div>
       </div>
