@@ -151,14 +151,6 @@ cd backend
 npm install
 ```
 
-## Create .env file
-
-```env
-PORT=5001
-MONGO_URI=your_mongodb_connection_string
-JWT_SECRET=your_secret_key
-NODE_ENV=development
-```
 
 ## Run backend
 
@@ -170,25 +162,6 @@ Backend runs on:
 
 ```bash
 http://localhost:5001
-```
-
----
-
-# Environment Variables
-
-## Frontend `.env`
-
-```env
-VITE_API_BASE_URL=your_backend_url
-```
-
-## Backend `.env`
-
-```env
-PORT=5001
-MONGO_URI=your_mongodb_uri
-JWT_SECRET=your_secret
-NODE_ENV=production
 ```
 
 ---
